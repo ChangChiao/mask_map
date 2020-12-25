@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <header><i class="fas fa-head-side-mask"></i>口罩即時查</header>
+        <div class="info">
+            <h1 class="title">{{day}}</h1>
+            <!-- <p class="subtitle">{{date}}</p> -->
+            <h5>最後更新時間:{{updatedTime}}</h5>
+            {{canBuy}}
+            <button class="is-info button is-small" @click="getMaskData">
+                重整列表
+            </button>
+            <div class="select is-small">
+                <select v-model="selcetedCity" @change="filterCityData('city')">
+                    <option value="">請選擇縣市</option>
+                    <option v-for='(item, i) in cityList' :key="i" :value="item">{{item}}</option>
+                </select>
+            </div>
+            <div class="select is-small">
+                <select v-model="selcetedCounty" @change="filterCityData('town')">
+                    <option value="">請選擇區域</option>
+                    <option v-for='(vo, k) in zoneList' :key="k" :value="vo">{{vo}}</option>
+                </select>
+            </div>
+            <ul class="maskList">
+                <li v-for="(vo ,k) in renderData" :key="k">
+                    <div class="detail">
+                        <div :class="['detail_item',checkStatus(vo.properties.mask_adult)]">
+                            <h3>成人口罩數量：</h3>
+                            <p>
+                                <span>{{vo.properties.mask_adult}}</span>
+                                片
+                            </p>
+                            <i :class="['fas',checkStatus(vo.properties.mask_adult,'icon')]"></i>
+                            <icon></icon>
+                        </div>
+                        <div :class="['detail_item',checkStatus(vo.properties.mask_child)]">
+                            <h3>兒童口罩數量：</h3>
+                            <p>
+                                <span>{{vo.properties.mask_child}}</span>
+                                片
+                            </p>
+                            <i :class="['fas',checkStatus(vo.properties.mask_child,'icon')]"></i>
+                            <icon></icon>
+                        </div>
+                    </div>
+                    <h5 class="subtitle">
+                        {{vo.properties.name}}
+                        <button class="checkBtn" @click="focusLocation(vo)">地圖查看</button>
+                    </h5>
+                    <h5
+                        ><span>地址</span>
+                        {{vo.properties.address}}
+                    </h5>
+                    <h5>
+                        <span>聯絡電話</span>
+                        <a :href="`tel:${vo.properties.phone}`">{{vo.properties.phone}}</a>
+                    </h5>
+                    <h5>
+                        <span>備註</span>
+                        {{vo.properties.custom_note || "暫無備註"}}
+                    </h5>
+                </li>
+            </ul>
+        </div>
+        <div id="map">
+
+        </div>
+        <div class="loadingContainer" v-if="loading">
+            <div class="loading">
+                <div class="circle">
+                </div>
+                <span> 讀取中...</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

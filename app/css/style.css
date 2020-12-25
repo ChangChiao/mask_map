@@ -1,0 +1,180 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: #333; }
+
+* {
+  font-family: "Microsoft YaHei";
+  list-style: none; }
+
+#app {
+  height: 100%;
+  display: flex; }
+
+#map {
+  width: 80%;
+  height: 100%; }
+
+.info {
+  width: 20%;
+  height: 100%;
+  overflow: hidden;
+  background: #eee;
+  padding: 50px 10px 10px; }
+
+header {
+  height: 30px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  color: #fff;
+  background-color: #22303d;
+  line-height: 30px; }
+  header i {
+    padding: 0 10px; }
+
+.title {
+  color: #34495e; }
+
+.marker-cluster-small {
+  background-color: rgba(181, 226, 140, 0.6); }
+
+.marker-cluster-small div {
+  background-color: rgba(110, 204, 57, 0.6); }
+
+.marker-cluster-medium {
+  background-color: rgba(241, 211, 87, 0.6); }
+
+.marker-cluster-medium div {
+  background-color: rgba(240, 194, 12, 0.6); }
+
+.marker-cluster-large {
+  background-color: rgba(253, 156, 115, 0.6); }
+
+.marker-cluster-large div {
+  background-color: rgba(241, 128, 23, 0.6); }
+
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 20px; }
+
+.marker-cluster div {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 15px;
+  font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif; }
+
+.marker-cluster span {
+  line-height: 30px; }
+
+.maskList {
+  overflow-y: scroll;
+  height: 80vh;
+  padding-top: 10px;
+  color: #34495e; }
+  .maskList li {
+    border-bottom: 1px dashed #ccc;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 3px 10px #0000001a;
+    margin-bottom: 10px; }
+    .maskList li h5 {
+      padding: 5px 0; }
+      .maskList li h5 span {
+        color: #34495e;
+        font-weight: 700;
+        width: 80px;
+        display: inline-block; }
+  .maskList .detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; }
+    .maskList .detail_item {
+      width: 48%;
+      color: #fff;
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px; }
+      .maskList .detail_item span {
+        font-size: 26px;
+        font-weight: 900; }
+      .maskList .detail_item i {
+        position: absolute;
+        right: -3px;
+        bottom: -3px;
+        font-size: 40px;
+        opacity: 0.3; }
+
+.loadingContainer {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999; }
+
+.loading {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  text-align: center; }
+
+.circle {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  border: 4px #ccc solid;
+  border-top: 4px #333 solid;
+  border-radius: 50%;
+  -webkit-animation: spCircRot 0.6s infinite linear;
+  animation: spCircRot 0.6s infinite linear; }
+
+.loading span {
+  padding-top: 10px;
+  /*font-size: 20px;*/
+  display: inline-block;
+  color: #fff;
+  font-family: Microsoft YaHei; }
+
+@-webkit-keyframes spCircRot {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(359deg); } }
+
+@keyframes spCircRot {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(359deg); } }
+
+.checkBtn {
+  border-radius: 10px;
+  background: #8fbc8f;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  transition-duration: 0.5s; }
+  .checkBtn:hover {
+    background: orange; }
+
+.green {
+  background-color: #11787a; }
+
+.orange {
+  background-color: #e67e22; }
+
+.gray {
+  background-color: #70777c; }
