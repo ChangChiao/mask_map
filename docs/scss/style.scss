@@ -18,15 +18,19 @@ body {
   display: flex;
 }
 #map {
-  width: 80%;
+  width: 75%;
   height: 100%;
 }
 .info {
-  width: 20%;
+  width: 25%;
   height: 100%;
   overflow: hidden;
   background: #eee;
   padding: 50px 10px 10px;
+  h5{
+    font-size: 14px;
+    color:#999;
+  }
 }
 
 header{
@@ -43,7 +47,12 @@ header{
 }
 
 .title{
-  color: $base
+  color: $base;
+  font-size: 18px;
+  span{
+    padding: 0 3px;
+    font-size: 28px;  
+  }
 }
 
 //map
@@ -89,8 +98,9 @@ header{
 .maskList {
   overflow-y: scroll;
   height: 80vh;
-  padding-top: 10px;
+  margin-top: 20px;
   color: #34495e;
+  padding-bottom: 50px;
   li {
     border-bottom: 1px dashed #ccc;
     background: #fff;

@@ -9,7 +9,7 @@ const sass = require("gulp-sass");
 function browser() {
     browserSync.init({
         server: {
-            baseDir: "./app",
+            baseDir: "./docs",
             reloadDebounce: 2000
         }
     })
@@ -18,25 +18,25 @@ function browser() {
 
 
 function clean() {
-    return del(["./app/css/"]);
+    return del(["./docs/css/"]);
 }
 
 
 function css() {
     return gulp
-        .src("./app/scss/*.scss")
+        .src("./docs/scss/*.scss")
         .pipe(plumber())
         .pipe(sass({ outputStyle: "nested" }))
-        .pipe(gulp.dest("./app/css/"))
-        .pipe(gulp.dest("./app/css/"))
+        .pipe(gulp.dest("./docs/css/"))
+        .pipe(gulp.dest("./docs/css/"))
         .pipe(browserSync.stream());
 }
 
 
 
 function watchFiles() {
-    gulp.watch("./app/scss/*.scss", css).on('change', browserSync.reload);
-    gulp.watch("./app/js/*.js", css).on('change', browserSync.reload);
+    gulp.watch("./docs/scss/*.scss", css).on('change', browserSync.reload);
+    gulp.watch("./docs/js/*.js", css).on('change', browserSync.reload);
 }
 
 
