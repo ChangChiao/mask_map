@@ -19,10 +19,10 @@
     <div id="app">
         <header><i class="fas fa-head-side-mask"></i>口罩即時查</header>
         <div class="info">
-            <h1 class="title">{{day}}</h1>
+            <p class="title">今天是<span>{{day}}</span></p>
             <!-- <p class="subtitle">{{date}}</p> -->
-            <h5>最後更新時間:{{updatedTime}}</h5>
             {{canBuy}}
+            <h5>最後更新時間:{{updatedTime}}</h5>
             <button class="is-info button is-small" @click="getMaskData">
                 重整列表
             </button>

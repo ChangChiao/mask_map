@@ -13,15 +13,18 @@ body {
   display: flex; }
 
 #map {
-  width: 80%;
+  width: 75%;
   height: 100%; }
 
 .info {
-  width: 20%;
+  width: 25%;
   height: 100%;
   overflow: hidden;
   background: #eee;
   padding: 50px 10px 10px; }
+  .info h5 {
+    font-size: 14px;
+    color: #999; }
 
 header {
   height: 30px;
@@ -35,7 +38,11 @@ header {
     padding: 0 10px; }
 
 .title {
-  color: #34495e; }
+  color: #34495e;
+  font-size: 18px; }
+  .title span {
+    padding: 0 3px;
+    font-size: 28px; }
 
 .marker-cluster-small {
   background-color: rgba(181, 226, 140, 0.6); }
@@ -74,8 +81,9 @@ header {
 .maskList {
   overflow-y: scroll;
   height: 80vh;
-  padding-top: 10px;
-  color: #34495e; }
+  margin-top: 20px;
+  color: #34495e;
+  padding-bottom: 50px; }
   .maskList li {
     border-bottom: 1px dashed #ccc;
     background: #fff;
